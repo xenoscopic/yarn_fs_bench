@@ -1,0 +1,16 @@
+services:
+  web:
+    image: node:14.19.3
+    working_dir: /code
+    volumes:
+      - ./code:/code
+      - target:/target
+
+volumes:
+  target:
+
+x-mutagen:
+  sync:
+    code:
+      alpha: ./target
+      beta: volume://target
